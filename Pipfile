@@ -14,3 +14,4 @@ python_version = "3.9"
 [scripts]
 typecheck = "python -m mypy __init__.py"
 main = "bash -c 'pipenv run typecheck && python __init__.py'"
+test = "python -m unittest -v __tests__.py"
