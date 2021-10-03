@@ -12,6 +12,9 @@ mypy = "*"
 python_version = "3.9"
 
 [scripts]
-typecheck = "python -m mypy __init__.py"
-main = "bash -c 'pipenv run typecheck && python __init__.py'"
-test = "python -m unittest -v __tests__.py"
+typecheck-lib = "python -m mypy factorial"
+typecheck-main = "python -m mypy main.py"
+typecheck-tests = "python -m mypy __tests__.py"
+typecheck = "bash -c 'pipenv run typecheck-lib && pipenv run typecheck-main && pipenv run typecheck-tests'"
+main = "bash pipenv run python main.py"
+tests = "python -m unittest -v __tests__.py"

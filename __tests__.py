@@ -3,15 +3,15 @@ Tests for the package
 """
 
 from unittest import TestCase
+from factorial import factorial
 
 class ExampleTestCase(TestCase):
     """
     A Test Case
     """
 
-    def test_true(self):
+    def test_basic(self):
         """
         An example test
         """
-        self.assertEqual(1 + 1, 2,
-                "basic addition should work")
+        self.assertEqual(factorial(0), 1)
