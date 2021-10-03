@@ -1,0 +1,14 @@
+name: Checks
+
+on:
+  push
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v2
+      - run: pip install pipenv
+      - uses: actions/checkout@v2
+      - run: pipenv install
+      - run: pipenv run tests
