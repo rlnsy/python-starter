@@ -1,0 +1,8 @@
+name: 'Setup'
+description: 'Project set-up'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v2
+    - run: pip install pipenv
+    - run: pipenv install
