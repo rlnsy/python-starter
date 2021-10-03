@@ -25,4 +25,5 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - run: docker build -t pythonapp
+      - uses: actions/checkout@v2
+      - run: docker build -t pythonapp .
