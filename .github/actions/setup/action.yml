@@ -1,11 +1,5 @@
 name: 'Setup'
 description: 'Project set-up'
-defaults:
-  run:
-    shell: bash
 runs:
-  using: composite
-  steps:
-    - uses: actions/setup-python@v2
-    - run: pip install pipenv
-    - run: pipenv install
+  using: docker
+  image: Dockerfile
