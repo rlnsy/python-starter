@@ -3,7 +3,7 @@ Tests for the package
 """
 
 from unittest import TestCase
-from factorial import factorial
+from mathtools import factorial
 
 class ExampleTestCase(TestCase):
     """

@@ -12,7 +12,7 @@ mypy = "*"
 python_version = "3.8"
 
 [scripts]
-typecheck-lib = "python -m mypy factorial"
+typecheck-lib = "python -m mypy mathtools"
 typecheck-main = "python -m mypy main.py"
 typecheck-tests = "python -m mypy __tests__.py"
 typecheck = "bash -c 'pipenv run typecheck-lib && pipenv run typecheck-main && pipenv run typecheck-tests'"
