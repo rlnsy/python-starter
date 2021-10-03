@@ -39,9 +39,14 @@ jobs:
             command: docker build -t pythonapp .
     name: ${{ matrix.name }}
     steps:
+      - name: Set up python
+        if: ${{ matrix.setup }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
       - name: Install pipenv
         if: ${{ matrix.setup }}
-        run: pip install pipenv 
+        run: pip3 install pipenv 
       - uses: actions/checkout@v2
       - name: Set up project
         if: ${{ matrix.setup }}
