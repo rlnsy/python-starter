@@ -34,9 +34,6 @@ jobs:
           - name: Docker build on Ubuntu
             os: ubuntu-latest
             command: docker build -t pythonapp .
-          - name: Docker build on MacOS
-            os: macos-latest
-            command: docker build -t pythonapp .
     name: ${{ matrix.name }}
     steps:
       - name: Set up python
