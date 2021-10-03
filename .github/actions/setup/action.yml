@@ -1,5 +1,0 @@
-name: 'Setup'
-description: 'Project set-up'
-runs:
-  using: docker
-  image: Dockerfile
