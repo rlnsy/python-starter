@@ -3,8 +3,18 @@ name: Checks
 on:
   push
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  main:
+  type:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - run: pipenv run typecheck
+  tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
