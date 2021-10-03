@@ -9,7 +9,7 @@ name = "pypi"
 mypy = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
 
 [scripts]
 typecheck-lib = "python -m mypy factorial"
