@@ -8,3 +8,9 @@ RUN mkdir /app
 WORKDIR /app
 COPY . .
 RUN tox
+# set up the environment - this replicates the venv activate behaviour.
+# Thanks to this post:
+# https://pythonspeed.com/articles/activate-virtualenv-dockerfile/
+ENV VIRTUAL_ENV=.tox/py39
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+CMD bash
