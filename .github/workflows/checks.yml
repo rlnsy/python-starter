@@ -18,35 +18,29 @@ jobs:
           - name: Tests on Ubuntu
             os: ubuntu-latest
             setup: true
-            command: pipenv run tests
+            command: tox -e tests
           - name: Tests on MacOS
             os: macos-latest
             setup: true
-            command: pipenv run tests
+            command: tox -e tests
           - name: Type check on Ubuntu
             os: ubuntu-latest
             setup: true
-            command: pipenv run typecheck
+            command: tox -e type
           - name: Type check on MacOS
             os: macos-latest
             setup: true
-            command: pipenv run typecheck
+            command: tox -e type
           - name: Docker build on Ubuntu
             os: ubuntu-latest
             command: docker build -t pythonapp .
     name: ${{ matrix.name }}
     steps:
-      - name: Set up python
-        if: ${{ matrix.setup }}
+      - if: ${{ matrix.setup }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-      - name: Install pipenv
-        if: ${{ matrix.setup }}
-        run: pip3 install pipenv 
+          python-version: 3.9
+      - if: ${{ matrix.setup }}
+        run: python -m pip install tox tox-venv
       - uses: actions/checkout@v2
-      - name: Set up project
-        if: ${{ matrix.setup }}
-        run: pipenv install --dev
-      - name: Run check
-        run: ${{ matrix.command }}
+      - run: ${{ matrix.command }}
