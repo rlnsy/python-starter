@@ -8,22 +8,43 @@ defaults:
     shell: bash
 
 jobs:
-  type:
-    runs-on: ubuntu-latest
+  # structure inspired by the mypy test suite
+  main:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Tests on Ubuntu
+            os: ubuntu-latest
+            setup: true
+            command: pipenv run tests
+          - name: Tests on MacOS
+            os: macos-latest
+            setup: true
+            command: pipenv run tests
+          - name: Type check on Ubuntu
+            os: ubuntu-latest
+            setup: true
+            command: pipenv run typecheck
+          - name: Type check on MacOS
+            os: macos-latest
+            setup: true
+            command: pipenv run typecheck
+          - name: Docker build on Ubuntu
+            os: ubuntu-latest
+            command: docker build -t pythonapp .
+          - name: Docker build on MacOS
+            os: macos-latest
+            command: docker build -t pythonapp .
+    name: ${{ matrix.name }}
     steps:
-      - run: pip install pipenv
+      - name: Install pipenv
+        if: ${{ matrix.setup }}
+        run: pip install pipenv 
       - uses: actions/checkout@v2
-      - run: pipenv install --dev
-      - run: pipenv run typecheck
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - run: pip install pipenv
-      - uses: actions/checkout@v2
-      - run: pipenv install --dev
-      - run: pipenv run tests
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker build -t pythonapp .
+      - name: Set up project
+        if: ${{ matrix.setup }}
+        run: pipenv install --dev
+      - name: Run check
+        run: ${{ matrix.command }}
