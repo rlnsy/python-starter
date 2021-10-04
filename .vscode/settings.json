@@ -1,3 +1,9 @@
 {
-    "python.defaultInterpreterPath": ".tox/py39/bin/python"
+    "python.defaultInterpreterPath": ".tox/py39/bin/python",
+    "files.exclude": {
+        "__pycache__": true,
+        ".mypy_cache": true,
+        ".tox": true,
+        "dist": true
+    }
 }
