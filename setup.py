@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mathtools",
+    name="coolmathtools",
     version="0.0.1",
     author="Rowan Lindsay",
     author_email="rowan@rowanlindsay.com",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "mathtools"},
-    packages=setuptools.find_packages(where="mathtools"),
+    package_dir={"": "coolmathtools"},
+    packages=setuptools.find_packages(where="coolmathtools"),
     python_requires=">=3.8",
 )

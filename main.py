@@ -3,7 +3,7 @@ Python Program
 """
 import sys
 
-from mathtools import factorial
+from coolmathtools import factorial
 
 def main()->int:
     """
