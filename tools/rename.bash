@@ -18,7 +18,7 @@ if [[ $stat != 0 ]]; then
 		exit $stat
 fi
 
-files=( "setup.py" "main.py" "__tests__.py" )
+files=( "setup.py" "main.py" "__tests__.py" "tox.ini" )
 
 for f in "${files[@]}"
 do
