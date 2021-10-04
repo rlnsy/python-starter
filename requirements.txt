@@ -2,3 +2,4 @@ mypy
 setuptools
 wheel
 pylint
+black

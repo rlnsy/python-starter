@@ -5,5 +5,7 @@
         ".mypy_cache": true,
         ".tox": true,
         "dist": true
-    }
+    },
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true
 }
