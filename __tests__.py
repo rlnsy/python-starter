@@ -5,6 +5,7 @@ Tests for the package
 from unittest import TestCase
 from coolmathtools import factorial
 
+
 class ExampleTestCase(TestCase):
     """
     A Test Case

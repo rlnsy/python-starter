@@ -5,7 +5,8 @@ import sys
 
 from coolmathtools import factorial
 
-def main()->int:
+
+def main() -> int:
     """
     Main function
     """
@@ -13,6 +14,7 @@ def main()->int:
     print(f"100 factorial is {_x_}")
     return 0
 
+
 if __name__ == "__main__":
-    res:int = main()
+    res: int = main()
     sys.exit(res)
