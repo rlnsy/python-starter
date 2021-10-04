@@ -15,31 +15,36 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Tests on Ubuntu
-            os: ubuntu-latest
+          - name: Tests (MacOS)
+            os: macos-latest
+            python: 3.9
             setup: true
             command: tox -e tests
-          - name: Tests on MacOS
+          - name: Type check (MacOS)
             os: macos-latest
-            setup: true
-            command: tox -e tests
-          - name: Type check on Ubuntu
-            os: ubuntu-latest
+            python: 3.9
             setup: true
             command: tox -e type
-          - name: Type check on MacOS
-            os: macos-latest
-            setup: true
-            command: tox -e type
-          - name: Docker build on Ubuntu
+          - name: Docker build (Ubuntu)
             os: ubuntu-latest
+            setup: false
             command: docker build -t pythonapp .
+          - name: Package Install (MacOS, 3.8)
+            os: macos-latest
+            python: 3.8
+            setup: true
+            command: tox
+          - name: Package Install (MacOS, 3.9)
+            os: macos-latest
+            python: 3.9
+            setup: true
+            command: tox
     name: ${{ matrix.name }}
     steps:
       - if: ${{ matrix.setup }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python }}
       - if: ${{ matrix.setup }}
         run: python -m pip install tox tox-venv
       - uses: actions/checkout@v2

@@ -22,5 +22,5 @@ setuptools.setup(
     ],
     package_dir={"": "mathtools"},
     packages=setuptools.find_packages(where="mathtools"),
-    python_requires=">=3.9",
+    python_requires=">=3.8",
 )
