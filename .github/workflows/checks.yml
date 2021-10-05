@@ -46,6 +46,8 @@ jobs:
             command: tox
     name: ${{ matrix.name }}
     steps:
+      - name: Rename the package
+        run: bash tools/rename.sh coolmathtools example_python_package
       - if: ${{ matrix.setup }}
         uses: actions/setup-python@v2
         with:
