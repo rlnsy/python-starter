@@ -1,5 +1,6 @@
 {
     "python.defaultInterpreterPath": ".tox/py39/bin/python",
+    "python.terminal.activateEnvironment": true,
     "files.exclude": {
         "__pycache__": true,
         ".mypy_cache": true,
@@ -7,5 +8,8 @@
         "dist": true
     },
     "python.formatting.provider": "black",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintUseMinimalCheckers": false,
 }

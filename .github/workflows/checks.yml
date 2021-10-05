@@ -15,6 +15,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - name: Lint (MacOS)
+            os: macos-latest
+            python: 3.9
+            setup: true
+            command: tox -e lint
           - name: Tests (MacOS)
             os: macos-latest
             python: 3.9
